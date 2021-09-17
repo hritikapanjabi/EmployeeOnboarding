@@ -101,9 +101,9 @@ class SignupForm extends Component {
                 <div className="text-center pt-3" >
                             <Button className="btn-lg btn-dark btn-block" type="submit" style={{marginLeft:'0'}}>Signup </Button>
                   
-                                        <div className="or-separator">
-                                    <span className="or-text">OR</span>
-                                </div>
+                                        
+                                    <p className="or-separator"><span className="or-text ">OR</span></p>
+                               
                                 
                                 <div className="row" >
                                     <div className="col">

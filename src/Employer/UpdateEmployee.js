@@ -108,11 +108,13 @@ function UpdateEmployee() {
                 className="form-control-sm"
                 value={designation}
                 onChange= {e=>onChange(e)}>
-              <option>Sales</option>
-              <option>Support</option>
-              <option>Training</option>
-              <option>Networking</option>
-              <option>IT</option>
+              <option value="Assurance">Assurance</option>
+              <option value="Customer Marketing and Sales">Customer Marketing and Sales</option>
+              <option value="Data and AI Services">Data and AI Services</option>
+              <option value="Digital">Digital</option>
+              <option value="Orchestration">Orchestration</option>
+              <option value="Usage Cash and Billing">Usage Cash and Billing</option>
+               <option value="Quality Engg and COE">Quality Engg and COE</option>
             </select><br/><br/>
             
             <button style={{margin: 0}} type="submit">Update</button>

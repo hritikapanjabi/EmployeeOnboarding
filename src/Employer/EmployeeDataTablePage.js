@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { MDBDataTable, Row, Col, Card, CardBody } from 'mdbreact';
 import './courses.css';
 import NotificationImportantIcon from '@material-ui/icons/NotificationImportant';
+import InfoIcon from '@material-ui/icons/Info';
 
 import axios from 'axios';
 import {
@@ -25,6 +26,8 @@ class EmployeeDataTablePage extends Component {
       isLoading:true,
 
       tableRows: [],
+
+      todos:[]
 
     };
 
@@ -58,15 +61,40 @@ console.log(url);
 
       });
 
+      await axios.get('http://localhost:8080/api/TodosDueDatePassed/')
+
+      .then(response => response.data)
+
+      .then(data => {
+
+         console.log(url);
+
+         // if (err) throw err;
+
+         this.setState({ todos: data })
+
+      })
+
+      .then(async() => {
+
+         this.setState({ tableRows:this.assemblePosts(), isLoading:false })
+
+         
+
+      });
+
+
+
   }
 
 
 
 
   assemblePosts= () => {
+    
 
     let emps =this.state.emps.map((emp) => {
-
+      
       return (
 
         {
@@ -77,12 +105,12 @@ lastname:emp.lastName,
 chapter:emp.designation,
 email:emp.emailID,
 date:emp.dateOfJoining,
-overallonboarding:emp.completeWeightage,
-coursecompletion:emp.onboardingProgress,
+overallonboarding:emp.onboardingProgress ,
+coursecompletion:emp.completeWeightage,
 edit:< Link to={"employer/allemployees/EditEmployee/"+emp.empId}className="btn btn-sm btn-secondary a-btn-slide-text">
 <span><strong>Edit</strong></span></Link>,
 noti :< Link to={"employer/allemployees/notification/"+emp.empId}className="btn btn-sm  a-btn-slide-text">
-<span><strong><NotificationImportantIcon/></strong></span></Link>,
+<span><strong><InfoIcon/></strong></span></Link>,
      
 
 }
@@ -131,17 +159,18 @@ const { ur } = this.props.match;
         sort: 'asc',
         width: 150
       },
-      {
-        label: 'Overall Onboarding',
-        field: 'overallonboarding',
-        sort: 'asc',
-        width: 100
-      },
+      
       {
         label: 'Course Completion',
         field: 'coursecompletion',
         sort: 'asc',
         width: 150
+      },
+      {
+        label: 'Overall Onboarding',
+        field: 'overallonboarding',
+        sort: 'asc',
+        width: 100
       },
       {
         label: 'Edit',
@@ -150,7 +179,7 @@ const { ur } = this.props.match;
         width: 100
       },
  {
-        label: 'Tasks Deatils',
+        label: 'Tasks Details',
         field: 'noti',
         sort: 'asc',
         width: 100

@@ -21,6 +21,7 @@ import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
      console.log(props) 
      const empId= props.empId;
       const [data,setData]=useState([])
+      let pendingtasks=[]
       useEffect(()=>{
         axios.get('http://localhost:8089/api/employees')
               .then(res=>setData(res.data))
@@ -45,6 +46,7 @@ import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
           },[empId]);
    let cps=[];
    let name ="";
+   let chapter="";
    for(var j=0;j<todoPending.length;j++){
       cps.push(false)
    }
@@ -55,6 +57,7 @@ import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
       var onnow= data[i].onboardingProgress;
       var coursenow=data[i].completeWeightage;
       name=data[i].firstName;
+      chapter = data[i].designation;
       //console.log(data[i].coursesToComplete);
 
          }}
@@ -68,18 +71,26 @@ import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
          // console.log(a)
          cps[ind]=a
          console.log(cps[ind])
+         
       
          }
           const onUpdate2=(e)=>{
          e.preventDefault();
             //console.log(cps)
+            
             for(var k=0;k<todoPending.length;k++){
+               let obj={
+                  toDo:todoPending[k].toDo,
+                  todoCompletion:cps[k].toString()
+               }
+               pendingtasks.push(obj)}
+               console.log(pendingtasks)
                const newUser={
                   empId:empId,
-                  toDo:todoPending[k].toDo,
-                  todoCompletion:cps[k]
+                  pendingtasks:pendingtasks
+                  
               }
-              console.log(newUser)
+            //   console.log(newUser)
               const config={
                     headers:{
                       "Content-Type": 'application/json'
@@ -90,8 +101,9 @@ import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
                 const res = axios.put('http://localhost:8089/api/UpdateEmployeeTodo',body,config)
                 console.log(res)
  
-            }
+            
             Alert.success("Updated Successfully!!")
+            window.location.reload("true");
          
        }
       if(todoPending.length==0){
@@ -124,7 +136,7 @@ import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
       
          }
           const onUpdate= (ind)=>(e)=>{
-         e.preventDefault();
+         // e.preventDefault();
             //console.log(cmpl)
            const newUser={
              empId:empId,
@@ -144,7 +156,7 @@ import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
            const res = axios.put('http://localhost:8089/api/UpdateEmployeeCourses',body,config)
            console.log(res)
          
-         
+         window.location.reload("true");
          
        }
        for(var i=0;i<coursePending.length;i++){
@@ -157,7 +169,7 @@ import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
          
          <td><input type="text" name={"cmpl"+[i]} value={cmpl[i]}
           onChange= {onChange(ind)}/>
-          <button class="btn btn-primary " size="sm" onClick={onUpdate(ind)} style={{marginLeft:'20px'}}>Done</button></td>
+          <button class="btn btn-primary text-center"  onClick={onUpdate(ind)} style={{marginLeft:'20px', height:'30px', textAlign:'center'  ,paddingTop:'0',paddingBottom:'0'}}>Done</button></td>
              <td>
                <ProgressBar animated now={cc} label={`${cc}%`} visuallyHidden /></td>
                </tr>
@@ -173,8 +185,13 @@ import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
         <section class="tsk" id="donboarding">   
          <div class="container">
          <div class="row">
-              <div class="col-sm-12 col-md-12" style={{backgroundColor:"#87d4cd"}}>
+              <div class="col-sm-6 col-md-6" style={{backgroundColor:"#87d4cd"}}>
                  <h3 class=" mt-4 text-secondary text-black"><EmojiPeopleIcon/>Hello {name}!!!</h3>
+
+            </div>
+            <div class="col-sm-6 col-md-6" align="right" style={{backgroundColor:"#87d4cd",paddingLeft:'50'}}>
+                 <h4 class=" mt-4 text-secondary text-black" >Chapter Type:{chapter}</h4>
+
             </div>
             </div>
              <div class="row">

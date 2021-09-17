@@ -71,16 +71,21 @@ function AddEmployee() {
             name="dateOfJoining" value={dateOfJoining} onChange= {e=>onChange(e)}/>
             <br/><br/>
             <label>Chapter Type:</label>
-            <input
-            style={{margin: 10}}
-            className="form-control-sm"
-                type="text"
-                style={{marginLeft: 22,width:"250px"}}
-                placeholder="Chapter Type"
-                name="designation"
-                value={designation}
-                onChange= {e=>onChange(e)}
-              /><br/><br/>
+          
+
+                <select style={{marginLeft: 22,width:"250px"}} name="designation" value={designation} onChange= {e=>onChange(e)} 
+            className="form-control-sm" required>
+              <option value="" disabled selected hidden>Select your chapter type</option>
+              <option value="Assurance">Assurance</option>
+              <option value="Customer Marketing and Sales">Customer Marketing and Sales</option>
+              <option value="Data and AI Services">Data and AI Services</option>
+              <option value="Digital">Digital</option>
+              <option value="Orchestration">Orchestration</option>
+              <option value="Usage Cash and Billing">Usage Cash and Billing</option>
+               <option value="Quality Engg and COE">Quality Engg and COE</option>
+              
+            </select>
+              <br/><br/>
             
             <button  style={{margin: 0}} type="submit">Add</button>
         </form>

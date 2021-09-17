@@ -3,6 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 import Header from '../Employee/Header';
 import EmployerHeader from '../Employer/EmployerHeader';
 import './AppHeader.css';
+import aaa from './aaa.png'
 
 class AppHeader extends Component {
     constructor(props) {
@@ -25,7 +26,7 @@ class AppHeader extends Component {
                                 ): (
                                     
                                     <div className="app-branding">
-                                            <Link to="/" className="app-title">Employee Onboarding</Link>
+                                            <Link to="/" className="app-title"><img className="logo" src={aaa}/></Link>
                                         
                                     <ul className="app-options">
                                         <li>

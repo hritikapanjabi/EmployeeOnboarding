@@ -8,7 +8,7 @@ import {
     useRouteMatch
   } from "react-router-dom";
 import AddEmployee from './AddEmployee';
-import Notifications from '../Employee/Notifications';
+import Notifications from '../Employer/Notifications';
 import UpdateEmployee from './UpdateEmployee';
 import EmployeeDataTablePage from './EmployeeDataTablePage';
 

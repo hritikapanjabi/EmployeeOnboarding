@@ -96,7 +96,7 @@ function AddCourseBasedOnDesgn() {
             <select style={{margin: 10}} value={designation} onChange= {e=>onChange(e)} 
             className="form-control-sm" required>
               <option value="" disabled selected hidden>Select your chapter type</option>
-              <option value="Sales">Sales</option>
+              <option value="Assurance">Assurance</option>
               <option value="Customer Marketing and Sales">Customer Marketing and Sales</option>
               <option value="Data and AI Services">Data and AI Services</option>
               <option value="Digital">Digital</option>

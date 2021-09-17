@@ -6,7 +6,7 @@ import axios from 'axios';
 import AlarmIcon from '@material-ui/icons/Alarm';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import ReportIcon from '@material-ui/icons/Report';
-
+import { useParams } from 'react-router';
 
 function DisplayTodos(props) {
 
@@ -16,7 +16,7 @@ function DisplayTodos(props) {
    let title=""
    let title2=""
    let title3=""
-   const empId= props.empId;
+   const empId=props.empId;
    console.log(empId)
    useEffect(()=>{
       axios.get("http://localhost:8089/api/TodosDueDateThisWeek/"+empId)
@@ -35,18 +35,18 @@ function DisplayTodos(props) {
    const renderTooltip = (props) => (
       
    <Tooltip id="danger-tooltip"  {...props}>
-     Deadline for these tasks approaching fast. Complete it ASAP.
+     Tasks for this week. 
   </Tooltip>);
 
 const renderTooltip2 = (props) => (
       
    <Tooltip id="danger-tooltip"  {...props}>
-     Missed Tasks are shown here.
+     Employee has missed these tasks.
   </Tooltip>);
   const renderTooltip1 = (props) => (
       
    <Tooltip id="danger-tooltip"  {...props}>
-      You have already done these tasks. Good!!
+      Employee has completed these tasks.
   </Tooltip>);
   
   var allpending=[]
@@ -54,13 +54,13 @@ const renderTooltip2 = (props) => (
   var allmissed=[]
   if(todoPending.length==0){
       
-      var row =<h4>Hooray!! No Pending Tasks for this week</h4>
+      var row =<h4>No Pending Tasks</h4>
       allpending.push(row)
   }
   else{
    
    for(var i=0;i<todoPending.length;i++){
-     title="Hurry Up!!"
+     title="Tasks for this week"
       var row=   <tr id="d1">
       <td id="m1"><AlarmIcon/> &nbsp; &nbsp; {todoPending[i].toDo}</td> 
       </tr>
@@ -88,7 +88,7 @@ const renderTooltip2 = (props) => (
 
    if(todoDueDate.length==0){
       
-      var row =<h4>You have completed everything on time!</h4>
+      var row =<h4>Employee has completed everything on time!</h4>
       allmissed.push(row)
       }
       else{

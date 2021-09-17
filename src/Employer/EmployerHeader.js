@@ -16,9 +16,6 @@ import {
   } from "react-router-dom";
 
 
-
- 
- 
 function EmployerHeader(props) {
     // let { path, url } = useRouteMatch();
     let url = "/employer"
