@@ -1,0 +1,71 @@
+
+*{
+  margin: 0;
+  padding: 0;
+  }
+
+
+
+  .header1{
+    padding: 0 !important;
+    margin: 0 !important;
+    background-image: url('./headerbg.png');
+    
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: auto;
+  }
+  
+  .logo{
+      width:70px;
+      height: 50px;
+   }
+    .photo{
+      width: 45px;
+      height: 45px;
+      margin-left: 30px;
+      padding: 0px;
+    }
+    .notifications{
+      width: 45px;
+      height: 45px;
+      
+      padding: 0;
+    }
+    
+    .dashboard{
+      width : 45px;
+      height: 45px;
+      margin-left: 30px;
+    }
+    button.navbar-toggler2 {
+      border-color: rgb(243, 26, 214);
+    }
+ 
+   .row1{
+      display: flex;
+      flex-direction: column;
+      width:100%;
+      height:100%;
+      list-style-type:none;
+      margin:0;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      color: white;
+      justify-content: center;
+      align-items: center;
+   
+  }
+  .row1:hover{
+      cursor: pointer;
+      background-color: #293846;
+  }
+  
+  #icon{
+      flex: 30%;
+      display: grid;
+      place-items: center;
+  }
+  #title{
+      flex: 70%;
+  }
+  

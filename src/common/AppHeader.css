@@ -1,0 +1,49 @@
+.app-nav{
+    background-color:gray;
+    height: 60px;
+
+}
+
+.header1{
+    padding: 0 !important;
+    margin: 0 !important;
+    background-image: url('./headerbg.png');
+    position: inherit;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+    height: auto;
+  }.app-options {
+    float: right;
+}
+
+.app-nav ul {
+    list-style-position: none;
+    margin: 0;
+    padding: 0;
+}
+
+.app-nav ul li {
+    list-style-type: none;
+    display: inline-block;
+    
+}
+
+.app-nav ul li a {
+    display: inline-block;
+    vertical-align: middle;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 15px;
+    color: rgba(0,0,0,0.65);
+}
+
+.app-nav ul li a:hover {
+    cursor: pointer;
+    background-color: #85c4c7;
+}
+
+.app-nav ul li a.active {
+    color: #ffffff;
+}

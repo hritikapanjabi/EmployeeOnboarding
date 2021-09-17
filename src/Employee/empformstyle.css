@@ -1,0 +1,48 @@
+
+ 
+  .main2 {
+    font-size: 16px;
+    margin-left:40px;
+    padding-top: 0;
+  }
+ 
+
+  h2{
+    color: #2F608B;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    
+  }
+  
+  input{
+    border: 2px solid #ccc;
+    border-radius: 5px;
+  
+  }
+.secondText{
+  text-indent: 11em;
+  
+}
+.secondTextbox{
+  margin-left: 50px;
+}
+label{
+  font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+}
+.textarea{
+  width: 500px;
+}
+button[type=submit]{
+  background-color: #2F608B;
+  border: 2px solid ;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 20px;
+  width: 100px;
+  height: 50px;
+  margin-left: 500px;
+}
